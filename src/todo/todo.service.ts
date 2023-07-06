@@ -12,6 +12,18 @@ export class TodoService {
     { id: 3, description: 'todo3 description', done: false },
   ];
 
+  get totalTodos(): number {
+    return this.todos.length;
+  }
+
+  get completedTodos(): number {
+    return this.findAll({ done: true }).length;
+  }
+
+  get pendingTodos(): number {
+    return this.findAll({ done: false }).length;
+  }
+
   private findIndexTodo(id): number {
     const index = this.todos.findIndex((todo) => todo.id === id);
 

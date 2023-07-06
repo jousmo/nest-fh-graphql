@@ -25,6 +25,30 @@ export class TodoResolver {
     return this.todoService.findOne(id);
   }
 
+  @Query(() => Int, {
+    description: 'Retorna la cantidad de todos',
+    name: 'totalTodos',
+  })
+  totalTodos(): number {
+    return this.todoService.totalTodos;
+  }
+
+  @Query(() => Int, {
+    description: 'Retorna la cantidad de todos completados',
+    name: 'completedTodos',
+  })
+  completedTodos(): number {
+    return this.todoService.completedTodos;
+  }
+
+  @Query(() => Int, {
+    description: 'Retorna la cantidad de todos pendientes',
+    name: 'pendingTodos',
+  })
+  pendingTodos(): number {
+    return this.todoService.pendingTodos;
+  }
+
   @Mutation(() => TodoEntity, {
     description: 'Crea un todo',
     name: 'createTodo',

@@ -25,6 +25,15 @@ type Query {
 
   """Retorna un todo"""
   todo(id: Int!): TodoEntity!
+
+  """Retorna la cantidad de todos"""
+  totalTodos: Int!
+
+  """Retorna la cantidad de todos completados"""
+  completedTodos: Int!
+
+  """Retorna la cantidad de todos pendientes"""
+  pendingTodos: Int!
 }
 
 type Mutation {
