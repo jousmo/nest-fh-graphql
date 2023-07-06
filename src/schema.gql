@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type TodoEntity {
+  id: Int!
+  description: String!
+  done: Boolean!
+}
+
 type Query {
   helloWorld: String!
 
@@ -13,4 +19,7 @@ type Query {
 
   """Dara un numero del 0 al argumento TO"""
   randomFromZeroX(to: Int): Int!
+
+  """Retorna una lista de todos"""
+  todos: [TodoEntity!]!
 }
