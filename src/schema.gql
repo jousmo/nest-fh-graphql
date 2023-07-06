@@ -4,4 +4,7 @@
 
 type Query {
   helloWorld: String!
+
+  """Dara un numero aleatorio"""
+  randomNumber: Float!
 }
