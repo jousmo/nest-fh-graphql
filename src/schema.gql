@@ -26,3 +26,13 @@ type Query {
   """Retorna un todo"""
   todo(id: Int!): TodoEntity!
 }
+
+type Mutation {
+  """Crea un todo"""
+  createTodo(createTodoInput: CreateTodoInput!): TodoEntity!
+}
+
+input CreateTodoInput {
+  description: String!
+  done: Boolean!
+}
