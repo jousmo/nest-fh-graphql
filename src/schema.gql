@@ -21,7 +21,7 @@ type Query {
   randomFromZeroX(to: Int): Int!
 
   """Retorna una lista de todos"""
-  todos: [TodoEntity!]!
+  todos(done: Boolean): [TodoEntity!]!
 
   """Retorna un todo"""
   todo(id: Int!): TodoEntity!
