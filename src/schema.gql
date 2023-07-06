@@ -7,4 +7,7 @@ type Query {
 
   """Dara un numero aleatorio"""
   randomNumber: Float!
+
+  """Dara un numero del 0 al 10"""
+  randomFromZeroTo: Int!
 }
