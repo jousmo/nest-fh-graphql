@@ -8,6 +8,13 @@ type TodoEntity {
   done: Boolean!
 }
 
+type AggregationsType {
+  total: Int!
+  pending: Int!
+  completed: Int! @deprecated(reason: "Usa mejor completedNew")
+  completedNew: Int!
+}
+
 type Query {
   helloWorld: String!
 
@@ -34,6 +41,9 @@ type Query {
 
   """Retorna la cantidad de todos pendientes"""
   pendingTodos: Int!
+
+  """Retorna los aggregations del todo"""
+  aggregations: AggregationsType!
 }
 
 type Mutation {
