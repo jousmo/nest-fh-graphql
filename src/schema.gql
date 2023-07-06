@@ -22,4 +22,7 @@ type Query {
 
   """Retorna una lista de todos"""
   todos: [TodoEntity!]!
+
+  """Retorna un todo"""
+  todo(id: Int!): TodoEntity!
 }
