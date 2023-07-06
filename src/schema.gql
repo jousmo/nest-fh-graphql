@@ -33,6 +33,9 @@ type Mutation {
 
   """Actualiza un todo"""
   updateTodo(id: Int!, updateTodoInput: UpdateTodoInput!): TodoEntity!
+
+  """Elimina un todo"""
+  removeTodo(id: Int!): Boolean!
 }
 
 input CreateTodoInput {

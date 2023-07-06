@@ -11,16 +11,22 @@ export class TodoService {
     { id: 3, description: 'todo3 description', done: false },
   ];
 
+  private findIndexTodo(id): number {
+    const index = this.todos.findIndex((todo) => todo.id === id);
+
+    if (index === -1) throw new NotFoundException(`todo ${id} not found`);
+
+    return index;
+  }
+
   findAll(): TodoEntity[] {
     return this.todos;
   }
 
   findOne(id: number): TodoEntity {
-    const todo = this.todos.find((todo) => todo.id === id);
+    const index = this.findIndexTodo(id);
 
-    if (!todo) throw new NotFoundException(`todo ${id} not found`);
-
-    return todo;
+    return this.todos[index];
   }
 
   createTodo(createTodoInput: CreateTodoInput): TodoEntity {
@@ -34,9 +40,7 @@ export class TodoService {
   }
 
   updateTodo(id: number, updateTodoInput: UpdateTodoInput): TodoEntity {
-    const index = this.todos.findIndex((todo) => todo.id === id);
-
-    if (index === -1) throw new NotFoundException(`todo ${id} not found`);
+    const index = this.findIndexTodo(id);
 
     const updatedTodo = {
       ...this.todos[index],
@@ -47,7 +51,10 @@ export class TodoService {
     return updatedTodo;
   }
 
-  removeTodo() {
-    return {};
+  removeTodo(id: number): boolean {
+    const index = this.findIndexTodo(id);
+    const deletedTodo = this.todos.splice(index, 1);
+
+    return !!deletedTodo;
   }
 }
