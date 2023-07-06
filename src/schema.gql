@@ -10,4 +10,7 @@ type Query {
 
   """Dara un numero del 0 al 10"""
   randomFromZeroTo: Int!
+
+  """Dara un numero del 0 al argumento TO"""
+  randomFromZeroX(to: Int): Int!
 }
