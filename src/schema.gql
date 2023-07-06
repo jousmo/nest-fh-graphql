@@ -30,9 +30,17 @@ type Query {
 type Mutation {
   """Crea un todo"""
   createTodo(createTodoInput: CreateTodoInput!): TodoEntity!
+
+  """Actualiza un todo"""
+  updateTodo(id: Int!, updateTodoInput: UpdateTodoInput!): TodoEntity!
 }
 
 input CreateTodoInput {
   description: String!
   done: Boolean!
+}
+
+input UpdateTodoInput {
+  description: String
+  done: Boolean
 }
